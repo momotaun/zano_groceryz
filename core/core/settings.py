@@ -137,3 +137,36 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Custom settings
+# User
+AUTH_USER_MODEL = 'accounts.CustomUser'
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+# Rest Framework
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        # 'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        # 'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
+        # 'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ], 
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny'
+    ],
+    # 'USER_DETAILS_SERIALIZER': 'accounts.api.serializers.UserDetailsSerializer',
+    # 'REGISTER_SERIALIZER': 'accounts.api.serializers.UserRegisterSerializers',
+}
+
+# REST_AUTH_REGISTER_SERIALIZERS = {
+#     'REGISTER_SERIALIZER': 'accounts.api.serializers.UserRegisterSerializer',
+#     'USER_DETAILS_SERIALIZER': 'accounts.api.serializers.UserDetailsSerializer'
+# }
