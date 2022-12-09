@@ -48,7 +48,12 @@ INSTALLED_APPS = [
     'dj_rest_auth.registration',
 
     # Custom apps
+    'accounts',
+    'products',
+    'suppliers',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -116,7 +121,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Johannesburg'
 
 USE_I18N = True
 
